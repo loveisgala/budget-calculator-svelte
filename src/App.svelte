@@ -1,15 +1,14 @@
 <script>
-	//Components
-	import Navbar from './components/Navbar.svelte';
-	import expensesData from './expenses';
-	import ExpensesList from './ExpensesList.svelte';
+  //Components
+  import Navbar from "./components/Navbar.svelte";
+  import expensesData from "./expenses";
+  import ExpensesList from "./ExpensesList.svelte";
 
-	//Variables
-	let expenses = [...expensesData];
-
+  //Variables
+  let expenses = [...expensesData];
 </script>
 
-<Navbar/>
+<Navbar />
 <main class="content">
-	<ExpensesList expenses={expenses}/>
+  <ExpensesList {expenses} />
 </main>
