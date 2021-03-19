@@ -1,23 +1,30 @@
-<style>
-  .expense {
-    display: flex;
-    align-items: center;
-  }
-
-  .expense-index {
-    margin-right: 1rem;
-  }
-</style>
-
 <script>
-  export let index;
   export let expense;
   let { name, amount, id } = expense;
+  let displayAmount = false;
 </script>
 
-<div class="expense">
-  <p class="expense-index">{index}</p>
-  <h2>title: {name}</h2>
-  <h2>amount: {amount}</h2>
-</div>
+<article class="single-expense">
+  <div class="expense-info">
+    <h2>
+      {name}
+      <button class="amount-btn">
+        <i class="fas fa-caret-down" />
+      </button>
+    </h2>
+    {#if displayAmount}
+      <h4>amount: ${amount}</h4>
+    {/if}
+  </div>
+  <div class="expense-buttons">
+    <button class="expense-btn edit-btn">
+      <i class="fas fa-pen" />
+    </button>
+    <button class="expense-btn delete-btn">
+      <i class="fas fa-trash" />
+    </button>
+  </div>
+</article>
 
+<style>
+</style>

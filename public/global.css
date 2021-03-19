@@ -16,11 +16,13 @@ Variables
   --mainBlack: #222;
   --mainGrey: #ececec;
   --darkGrey: #afafaf;
+  --darkviolet: #7d6494;
+  --lightred: #d43c3c;
   --mainTransition: all 0.3s linear;
   --mainSpacing: 0.3rem;
   --lightShadow: 2px 5px 3px 0px rgba(0, 0, 0, 0.5);
   --darkShadow: 4px 10px 5px 0px rgba(0, 0, 0, 0.5);
-  --mainBorderRadius: 0.25rem;
+  --mainBorderRadius: 0.25rem; 
 }
 /* 
 ====== 
@@ -223,10 +225,10 @@ Single Expense
   color: var(--primaryColor);
 }
 .delete-btn {
-  color: red;
+  color: var(--lightred);
 }
 .edit-btn {
-  color: green;
+  color: var(--darkviolet);
 }
 /* 
 ====== 
