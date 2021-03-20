@@ -1,14 +1,23 @@
 <script>
-  export let expense;
-  let { name, amount, id } = expense;
+  export let id;
+  export let name = '';
+  export let amount = 0;
+  export let removeExpense;
   let displayAmount = false;
+
+  /**
+   * Toggles displayAmount between true/false
+   */
+  function toggleAmount() {
+    displayAmount = !displayAmount;
+  }
 </script>
 
 <article class="single-expense">
   <div class="expense-info">
     <h2>
       {name}
-      <button class="amount-btn">
+      <button class="amount-btn" on:click|once="{toggleAmount}">
         <i class="fas fa-caret-down" />
       </button>
     </h2>
@@ -20,7 +29,7 @@
     <button class="expense-btn edit-btn">
       <i class="fas fa-pen" />
     </button>
-    <button class="expense-btn delete-btn">
+    <button class="expense-btn delete-btn" on:click={removeExpense(id)}>
       <i class="fas fa-trash" />
     </button>
   </div>
