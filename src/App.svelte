@@ -34,6 +34,15 @@
     expenses = [];
   }
 
+  /**
+   * Adds a new expense
+   * @param name, amount
+   */
+  function addExpense({ name, amount }) {
+    let expense = { id: Math.random() * Date.now(), name, amount };
+    expenses = [expense, ...expenses];
+  }
+
   //Context
   setContext("remove", removeExpense);
   setContext("remove", clearExpenses);
@@ -41,7 +50,7 @@
 
 <Navbar />
 <main class="content">
-  <Form />
+  <Form {addExpense} />
   <Totals title="Total Expenses" {total} />
   <ExpensesList {expenses} />
   <Button {expenses} />

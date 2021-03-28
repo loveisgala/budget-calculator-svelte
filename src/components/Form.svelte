@@ -3,6 +3,8 @@
 
   let name = "";
   let amount = null;
+  
+  export let addExpense;
 
   $: isEmpty = !name || !amount;
 
@@ -10,6 +12,7 @@
    * Reset values on form submit
    */
   function handleSubmit() {
+    addExpense({name, amount});
     name = "";
     amount = null;
   }
