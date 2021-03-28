@@ -1,14 +1,15 @@
 <script>
-  import { setContext } from 'svelte';
+  import { setContext } from "svelte";
   //Components
   import Navbar from "./components/Navbar.svelte";
   import ExpensesList from "./ExpensesList.svelte";
   import Button from "./components/Button.svelte";
   import Totals from "./components/Totals.svelte";
-  
+  import Form from "./components/Form.svelte";
+
   //Data
   import expensesData from "./expenses";
-  
+
   //Variables
   let expenses = [...expensesData];
 
@@ -16,7 +17,7 @@
   $: total = expenses.reduce((acc, curr) => {
     return (acc += curr.amount);
   }, 0);
-  
+
   //Functions
   /**
    * Remove expense
@@ -31,13 +32,14 @@
   }
 
   //Context
-  setContext('remove', removeExpense);
-  setContext('remove', clearExpenses);
+  setContext("remove", removeExpense);
+  setContext("remove", clearExpenses);
 </script>
 
 <Navbar />
 <main class="content">
-  <Totals title="Total Expenses" {total}/>
-  <ExpensesList {expenses}/>
-  <Button {expenses}/>
+  <Form />
+  <Totals title="Total Expenses" {total} />
+  <ExpensesList {expenses} />
+  <Button {expenses} />
 </main>

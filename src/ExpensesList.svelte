@@ -1,9 +1,3 @@
-<style>
-  h2 {
-    text-transform: capitalize;
-  }
-</style>
-
 <script>
   import SectionTitle from "./components/Title.svelte";
   import Expense from "./Expense.svelte";
@@ -14,10 +8,15 @@
   <SectionTitle title="expense list" />
   <ul>
     {#each expenses as expense, index}
-      <Expense {...expense}/>
+      <Expense {...expense} />
     {:else}
       <h2>currently you have no expenses</h2>
     {/each}
   </ul>
 </section>
 
+<style>
+  h2 {
+    text-transform: capitalize;
+  }
+</style>
