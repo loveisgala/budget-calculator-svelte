@@ -1,8 +1,8 @@
 <script>
+  import { getContext } from 'svelte';
   export let id;
   export let name = '';
   export let amount = 0;
-  export let removeExpense;
   let displayAmount = false;
 
   /**
@@ -11,13 +11,15 @@
   function toggleAmount() {
     displayAmount = !displayAmount;
   }
+
+  const removeExpense = getContext('remove');
 </script>
 
 <article class="single-expense">
   <div class="expense-info">
     <h2>
       {name}
-      <button class="amount-btn" on:click|once="{toggleAmount}">
+      <button class="amount-btn" on:click="{toggleAmount}">
         <i class="fas fa-caret-down" />
       </button>
     </h2>

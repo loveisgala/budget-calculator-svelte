@@ -1,7 +1,9 @@
 <script>
+  import { setContext } from 'svelte';
   //Components
   import Navbar from "./components/Navbar.svelte";
   import ExpensesList from "./ExpensesList.svelte";
+  import Button from "./components/Button.svelte";
   
   //Data
   import expensesData from "./expenses";
@@ -17,9 +19,18 @@
   function removeExpense(id) {
     expenses = expenses.filter((item) => item.id !== id);
   }
+
+  function clearExpenses() {
+    expenses = [];
+  }
+
+  //Context
+  setContext('remove', removeExpense);
+  setContext('remove', clearExpenses);
 </script>
 
 <Navbar />
 <main class="content">
-  <ExpensesList {expenses} {removeExpense} />
+  <ExpensesList {expenses}/>
+  <Button {expenses}/>
 </main>
