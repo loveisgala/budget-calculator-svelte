@@ -27,6 +27,9 @@
     expenses = expenses.filter((item) => item.id !== id);
   }
 
+  /**
+   * Reset expenses
+   */
   function clearExpenses() {
     expenses = [];
   }

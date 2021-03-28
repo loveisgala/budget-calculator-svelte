@@ -6,6 +6,9 @@
 
   $: isEmpty = !name || !amount;
 
+  /**
+   * Reset values on form submit
+   */
   function handleSubmit() {
     name = "";
     amount = null;
