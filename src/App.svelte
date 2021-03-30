@@ -12,6 +12,11 @@
 
   //Variables
   let expenses = [...expensesData];
+  
+  //Editing Variables
+  let setName = '';
+  let setAmount = null;
+  let setId = null;
 
   //Reactive
   $: total = expenses.reduce((acc, curr) => {
@@ -43,9 +48,18 @@
     expenses = [expense, ...expenses];
   }
 
+  function setModifiedExpense(id) {
+    let expense = expenses.find(item => item.id === id);
+    
+    setId = expense.id;
+    setName = expense.name;
+    setAmount = expense.amount;
+  }
+
   //Context
   setContext("remove", removeExpense);
-  setContext("remove", clearExpenses);
+  setContext("clear", clearExpenses);
+  setContext("modify", setModifiedExpense);
 </script>
 
 <Navbar />

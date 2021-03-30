@@ -1,7 +1,7 @@
 <script>
   import { getContext } from "svelte";
 
-  const clearExpenses = getContext("remove");
+  const clearExpenses = getContext("clear");
 </script>
 
 <button
