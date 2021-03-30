@@ -1,10 +1,10 @@
 <script>
   import Title from "./Title.svelte";
 
-  let name = "";
-  let amount = null;
-  
+  export let name = "";
+  export let amount = null;
   export let addExpense;
+  export let isEditing;
 
   $: isEmpty = !name || !amount;
 
@@ -32,9 +32,13 @@
     {#if isEmpty}
       <p class="form-empty">please fill out all form fields</p>
     {/if}
-    <button type="submit" class="btn btn-block" class:disabled={isEmpty}
-      >add expense</button
-    >
+    <button type="submit" class="btn btn-block" class:disabled={isEmpty}>
+      {#if isEditing}
+      edit expense
+        {:else}
+      add expense
+      {/if}
+    </button>
     <button type="button" class="close-btn">
       <i class="fas fa-times" />
       close
