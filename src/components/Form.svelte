@@ -14,9 +14,9 @@
    */
   function handleSubmit() {
     if (isEditing) {
-      editExpense({name, amount});
+      editExpense({ name, amount });
     } else {
-      addExpense({name, amount});
+      addExpense({ name, amount });
     }
     name = "";
     amount = null;
@@ -39,9 +39,9 @@
     {/if}
     <button type="submit" class="btn btn-block" class:disabled={isEmpty}>
       {#if isEditing}
-      edit expense
-        {:else}
-      add expense
+        edit expense
+      {:else}
+        add expense
       {/if}
     </button>
     <button type="button" class="close-btn">
