@@ -49,12 +49,30 @@
     expenses = [expense, ...expenses];
   }
 
+  /**
+   * Set modified expense
+   * @param id Expense id
+   */
   function setModifiedExpense(id) {
     let expense = expenses.find(item => item.id === id);
     
     setId = expense.id;
     setName = expense.name;
     setAmount = expense.amount;
+  }
+
+  /**
+   * Edit the expense
+   * @param {name, amount}
+   * @returns {Array} Returns new array with new name and amount values
+   */
+  function editExpense({name, amount}) {
+    expenses = expenses.map((item) => {
+      return item.id === setId ? {...item, name, amount} : {...item};
+    });
+    setId = null;
+    setAmount = null;
+    setName = '';
   }
 
   //Context
@@ -65,7 +83,7 @@
 
 <Navbar />
 <main class="content">
-  <Form {addExpense} name={setName} amount={setAmount} {isEditing}/>
+  <Form {addExpense} name={setName} amount={setAmount} {isEditing} {editExpense}/>
   <Totals title="Total Expenses" {total} />
   <ExpensesList {expenses} />
   <Button {expenses} />

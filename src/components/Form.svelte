@@ -5,6 +5,7 @@
   export let amount = null;
   export let addExpense;
   export let isEditing;
+  export let editExpense;
 
   $: isEmpty = !name || !amount;
 
@@ -12,7 +13,11 @@
    * Reset values on form submit
    */
   function handleSubmit() {
-    addExpense({name, amount});
+    if (isEditing) {
+      editExpense({name, amount});
+    } else {
+      addExpense({name, amount});
+    }
     name = "";
     amount = null;
   }
