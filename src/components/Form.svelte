@@ -1,4 +1,5 @@
 <script>
+  import {onMount, onDestroy, beforeUpdate, afterUpdate} from 'svelte';
   import Title from "./Title.svelte";
 
   export let name = "";

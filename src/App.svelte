@@ -45,7 +45,6 @@
     setAmount = null;
     setId = null;
   }
-  
   /**
    * Remove expense
    * @param id Expense ID
@@ -99,7 +98,6 @@
 
   //Context
   setContext("remove", removeExpense);
-  setContext("clear", clearExpenses);
   setContext("modify", setModifiedExpense);
 </script>
 
@@ -117,5 +115,5 @@
   {/if}
   <Totals title="Total Expenses" {total} />
   <ExpensesList {expenses} />
-  <Button {expenses} />
+  <Button {clearExpenses} />
 </main>

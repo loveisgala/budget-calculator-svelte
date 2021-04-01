@@ -1,7 +1,7 @@
 <script>
   import { getContext } from "svelte";
 
-  const clearExpenses = getContext("clear");
+  export let clearExpenses;
 </script>
 
 <button
