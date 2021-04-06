@@ -1,5 +1,5 @@
 <script>
-  import { setContext } from "svelte";
+  import { afterUpdate, setContext } from "svelte";
   import { onMount } from "svelte";
   //Components
   import Navbar from "./components/Navbar.svelte";
@@ -52,7 +52,6 @@
    */
   function removeExpense(id) {
     expenses = expenses.filter((item) => item.id !== id);
-    setLocalStorage();
   }
 
   /**
@@ -60,7 +59,6 @@
    */
   function clearExpenses() {
     expenses = [];
-    setLocalStorage();
   }
 
   /**
@@ -70,7 +68,6 @@
   function addExpense({ name, amount }) {
     let expense = { id: Math.random() * Date.now(), name, amount };
     expenses = [expense, ...expenses];
-    setLocalStorage();
   }
 
   /**
@@ -84,7 +81,6 @@
     setName = expense.name;
     setAmount = expense.amount;
     showForm();
-    setLocalStorage();
   }
 
   /**
@@ -99,7 +95,6 @@
     setId = null;
     setAmount = null;
     setName = "";
-    setLocalStorage();
   }
 
   //Context
@@ -119,6 +114,10 @@
       ? JSON.parse(localStorage.getItem("expenses"))
       : [];
   });
+  afterUpdate(() => {
+    setLocalStorage();
+  })
+
 </script>
 
 <Navbar {showForm} />
