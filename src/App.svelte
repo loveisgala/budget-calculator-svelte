@@ -7,6 +7,7 @@
   import Button from "./components/Button.svelte";
   import Totals from "./components/Totals.svelte";
   import Form from "./components/Form.svelte";
+  import Modal from "./Modal.svelte";
 
   //Data
   // import expensesData from "./expenses";
@@ -116,23 +117,25 @@
   });
   afterUpdate(() => {
     setLocalStorage();
-  })
-
+  });
 </script>
 
 <Navbar {showForm} />
 <main class="content">
   {#if isFormOpen}
-    <Form
-      {addExpense}
-      name={setName}
-      amount={setAmount}
-      {isEditing}
-      {editExpense}
-      {hideForm}
-    />
+    <Modal>
+      <Form
+        {addExpense}
+        name={setName}
+        amount={setAmount}
+        {isEditing}
+        {editExpense}
+        {hideForm}
+      />
+    </Modal>
   {/if}
   <Totals title="Total Expenses" {total} />
   <ExpensesList {expenses} />
   <Button {clearExpenses} />
 </main>
+
