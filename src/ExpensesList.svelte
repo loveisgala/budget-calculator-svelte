@@ -1,6 +1,7 @@
 <script>
   import SectionTitle from "./components/Title.svelte";
   import Expense from "./Expense.svelte";
+  import { fly } from 'svelte/transition';
   export let expenses = [];
 </script>
 
@@ -8,7 +9,9 @@
   <SectionTitle title="expense list" />
   <ul>
     {#each expenses as expense, index}
-      <Expense {...expense} />
+    <div transition:fly={{ x: 200}}>
+      <Expense {...expense}  />
+    </div>
     {:else}
       <h2>currently you have no expenses</h2>
     {/each}
