@@ -2,7 +2,6 @@
   import { afterUpdate, setContext } from "svelte";
   import { onMount } from "svelte";
   //Components
-  import Github from "./components/Github.svelte";
   import Navbar from "./components/Navbar.svelte";
   import ExpensesList from "./ExpensesList.svelte";
   import Button from "./components/Button.svelte";
@@ -123,8 +122,7 @@
 
 <Navbar {showForm} />
 <main class="content">
-  <Github />
-  <!-- {#if isFormOpen}
+  {#if isFormOpen}
     <Modal>
       <Form
         {addExpense}
@@ -138,5 +136,5 @@
   {/if}
   <Totals title="Total Expenses" {total} />
   <ExpensesList {expenses} />
-  <Button {clearExpenses} /> -->
+  <Button {clearExpenses} />
 </main>
